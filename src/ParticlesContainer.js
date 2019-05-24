@@ -5,12 +5,12 @@ import './ParticlesContainer.css';
 function ParticlesContainer(props) {
     return(
         <React.Fragment>
-            <Particles 
+            <Particles
                 canvasClassName="particles-canvas"
                 params={{
                     "particles": {
                         "number": {
-                            "value": 20,
+                            "value": 60,
                             "density": {
                                 "enable": true,
                                 "value_area": 800
@@ -51,7 +51,7 @@ function ParticlesContainer(props) {
                         },
                         "line_linked": {
                             "enable": true,
-                            "distance": 200,
+                            "distance": 50,
                             "color": "#ffffff",
                             "opacity": 0.4,
                             "width": 1
