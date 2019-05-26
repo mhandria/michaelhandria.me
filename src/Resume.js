@@ -138,8 +138,11 @@ function Resume(props) {
                     </React.Fragment>
                 ))}
             </ResumeSection>
-            <div
+            <a
+                href="https://app.box.com/s/qtg8n3bd2c4dy2h32syz3zzhpxdoh9lz"
                 css={css`
+                    color: white;
+                    text-decoration: none;
                     position: fixed;
                     bottom: 30px;
                     right: 10px;
@@ -153,7 +156,7 @@ function Resume(props) {
                     }
                 `}>
                 <i class="fas fa-download"></i>
-            </div>
+            </a>
         </div>
     );
 }
