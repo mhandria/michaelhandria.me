@@ -1,16 +1,26 @@
-import React from 'react';
+/** @jsx jsx */
 import Particles from 'react-particles-js';
-import './ParticlesContainer.css';
+
+import { css, jsx } from '@emotion/core';
+
+const canvasStyle = css`
+    position:fixed !important;
+    left:0;
+    top:0;
+    width:100%;
+    height:100vh;
+    z-index: 0;
+`;
 
 function ParticlesContainer(props) {
     return(
-        <React.Fragment>
+        <div css={css`background: black;`}>
             <Particles
-                canvasClassName="particles-canvas"
+                css={canvasStyle}
                 params={{
                     "particles": {
                         "number": {
-                            "value": 60,
+                            "value": 80,
                             "density": {
                                 "enable": true,
                                 "value_area": 800
@@ -51,7 +61,7 @@ function ParticlesContainer(props) {
                         },
                         "line_linked": {
                             "enable": true,
-                            "distance": 50,
+                            "distance": 90,
                             "color": "#ffffff",
                             "opacity": 0.4,
                             "width": 1
@@ -60,7 +70,7 @@ function ParticlesContainer(props) {
                             "enable": true,
                             "speed": 4,
                             "direction": "none",
-                            "random": false,
+                            "random": true,
                             "straight": false,
                             "out_mode": "out",
                             "bounce": false,
@@ -82,7 +92,7 @@ function ParticlesContainer(props) {
                         },
                         "modes": {
                             "repulse": {
-                                "distance": 200,
+                                "distance": 100,
                                 "duration": 0.4
                             },
                             "push": {
@@ -97,7 +107,7 @@ function ParticlesContainer(props) {
                 }}
             />
             {props.children}
-        </React.Fragment>
+        </div>
     )
 }
 

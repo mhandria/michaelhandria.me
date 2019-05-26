@@ -1,54 +1,30 @@
-import React from 'react';
-import './App.css';
 
+/** @jsx jsx */
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import ParticlesContainer from './ParticlesContainer';
+import Home from './Home';
+import Resume from './Resume';
 
-const content = [{
-  class: 'fab fa-github',
-  description: 'github',
-  link: 'https://github.com/mhandria'
-}, {
-  class:'fab fa-linkedin-in',
-  description: 'linkedin',
-  link: 'https://www.linkedin.com/in/michael-handria/'
-}, {
-  class: 'far fa-file',
-  description: 'resume',
-  link: ''
-}];
+import {css, jsx} from '@emotion/core';
 
-const getLinkList = (icons) => {
-  return(
-    <a href={icons.link}>
-      <div className="link">
-        <i className={icons.class}></i>
-        <span>{icons.description}</span>
-      </div>
-    </a>
-  );
-}
+const rootStyle = css`
+  background: black;
+  width: 100%;
+  height: 100vh;
+`;
 
 function App() {
-
-  let links = [];
-
-  content.map((value, index) => {
-    links.push(
-    <React.Fragment key={index}>
-      {getLinkList(value)}
-    </React.Fragment>);
-  });
-
+  
   return (
-    <div className="App">
+    <div css={rootStyle}>
       <ParticlesContainer>
-        <div className="root">
-          <span>hey, i'm</span>
-          <h1>Michael Handria</h1>
-          <div className="links">
-            {links.map((value) => value)}
-          </div>
-        </div>
+        <BrowserRouter basename="/">
+          <Switch>
+            <Redirect exact from="/" to="home" />
+            <Route path="/home" component={Home} />
+            <Route path="/resume" component={Resume} />
+          </Switch>
+        </BrowserRouter>
       </ParticlesContainer>
     </div>
   );
